@@ -1,3 +1,4 @@
+<?php require_once 'validar.php';?>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -6,7 +7,7 @@
     </head>
     <body>
         <div>Validación Formulario</div>
-        <?php
+        <?php 
         //entrada datos
             if (isset($_REQUEST['nombre'])) {
                 $nombre = $_REQUEST['nombre'];
@@ -16,16 +17,16 @@
             $error = false;
             $mensaje_error = "ERROR:";
             //la edad no es un numero
-            if (!is_numeric($edad)) {
+            if (!validarEdad($edad)) {
                 $error = true;
-                $mensaje_error .= " La edad debe ser un número";
-             }  else {
+                $mensaje_error .= " La edad debe ser un número entre 1 y 100";
+             }  /*else {
                  // la edad está entre 0 y 100
                  if ($edad <= 0 || $edad > 100) {
                      $error = true;
                      $mensaje_error .= " La edad debe estar entre 0 y 100";
                  }
-             }
+             }*/
             // el nombre esta vacío          
             if ($nombre == "") {
                 $error = true;
