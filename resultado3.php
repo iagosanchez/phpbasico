@@ -13,6 +13,7 @@
                 $nombre = $_REQUEST['nombre'];
             }
             $edad = $_REQUEST ['edad'];
+            $beca = $_REQUEST ['beca'];
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";
@@ -53,7 +54,15 @@
                   } else {
                       echo $nombre." es menor de edad";
                   }
+                if ($beca){
+                    echo "Solicita beca";
+                } else {
+                    echo "No solicita beca";
+                }
+                  
             }
+            
+            
                    
                
         ?>
