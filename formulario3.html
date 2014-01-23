@@ -13,15 +13,29 @@ and open the template in the editor.
     <body>
         <div>Formulario a validar</div>
          <form action="resultado3.php" method="get">
-          <input type="text" name="nombre"/></br>
-          <input name="edad" type="text" value="18"/></br>
-          Solicita beca: <input type="checkbox" name="beca"/></br>
+             <p><input type="text" name="nombre"/></p>
+             <p><input name="edad" type="text" value="18"/></p>
+          <!--checkbox -->
+          <p>Solicita beca: <input type="checkbox" name="beca"/></p>
           
-          Sexo:</br>
-          <input name="sexo" value="masc"/>Masculino
-          <input name="sexo" value="feme"/>Femenino
-          </br>
-                         
+          <!-- tipo radio -->
+         <p>Sexo:</br>
+          <input type="radio" name="sexo" value="masculino"/>Masculino
+          <input type="radio" name="sexo" value="femenino"/>Femenino
+          </p>
+          
+          <!--lista -->
+          <p> Estado civil:
+          <select name="Estado civil">
+              <option selected="selected" disabled="disabled">Seleccionar... </option>
+              <option>Soltero/a </option>
+              <option>Casado/a </option>
+              <option>Divorciado/a </option>
+              <option>Viudo/a </option>
+          </select>
+          </p>
+               
+          
           <input type="submit" value="enviar"/>
         </form>
     </body>

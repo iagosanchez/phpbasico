@@ -74,6 +74,5 @@ function resultadoCheck ($valor=NULL) {
     if (isset ($valor)){
         return true;
     } 
-    
-    }
+     }
     

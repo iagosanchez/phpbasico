@@ -22,6 +22,12 @@
              $error = true;
              $mensaje_error .= " Nombre obligatorio ";
          }
+         //validar sexo
+         if (!($sexo)){
+             $error = true;
+             $mensaje_error .=" El sexo es obligatorio";
+         }
+         
             //validar edad
             if (!validarEdad($edad)) {
                 $error = true;
@@ -54,7 +60,8 @@
                 echo "</br> Solicita beca";
                 } else {
                     echo "</br> No solicita beca";
-                } 
+                }
+                echo "</br> Sexo: ".$sexo;
          } else {
             //Si hay error
             echo $mensaje_error;
