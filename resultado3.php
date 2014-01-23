@@ -14,6 +14,7 @@
             $beca = isset ($_REQUEST ['beca']);
             $sexo = (isset ($_REQUEST ['sexo']))?$_REQUEST['sexo']:FALSE;
             $estado = (isset ($_REQUEST ['estado']))?$_REQUEST['estado']:FALSE;
+            $aficiones = (isset ($_REQUEST ['aficiones']))?$_REQUEST['aficiones']:FALSE;
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";
@@ -33,6 +34,11 @@
          if (!($estado)){
              $error = true;
              $mensaje_error .=" Estado civil no escogido";
+         }
+         //validar aficiones
+         if (!($aficiones)){
+             $error = true;
+             $mensaje_error .=" Debe marcar alguna afición";
          }
          
             //validar edad
@@ -70,6 +76,10 @@
                 }
                 echo "</br> Sexo: ".$sexo;
                 echo "</br> Estado civil: ".$estado;
+                echo "</br> Aficiones elegidas: ";
+                foreach($aficiones as $aficion){
+                    echo $aficion."</br>";
+                }
          } else {
             //Si hay error
             echo $mensaje_error;
