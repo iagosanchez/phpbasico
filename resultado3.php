@@ -9,9 +9,7 @@
         <div>Validación Formulario</div>
         <?php 
         //entrada datos
-            if (isset($_REQUEST['nombre'])) {
-                $nombre = $_REQUEST['nombre'];
-            }
+            $nombre = $_REQUEST ['nombre'];
             $edad = $_REQUEST ['edad'];
             $beca = $_REQUEST ['beca'];
         //validad datos
@@ -43,25 +41,27 @@
             
              
         //calculo y salida
-            if ($error == true) {
-                echo $mensaje_error;
-                echo "</br>";
-                echo "<a href='javascript:history.go(-1);'> Volver al formulario </a>";
+             //Calculo y salida
+         if (!$error) {
+             //Si no hay error
+            if ($edad>=18) {
+                echo $nombre. " es mayor de edad ";
             } else {
-               //si no hay error
-                if ($edad>=18){
-                      echo $nombre." es mayor de edad";
-                  } else {
-                      echo $nombre." es menor de edad";
-                  }
-                if ($beca){
-                    echo "Solicita beca";
+                echo $nombre. " es menor de edad ";
+            }
+            if ($beca){
+                echo "Solicita beca";
                 } else {
                     echo "No solicita beca";
-                }
-                  
-            }
+                } 
+         } else {
+            //Si hay error
+            echo $mensaje_error;
+            echo "</br>";
+            echo "<a href='javascript:history.go(-1);'> Volver al formulario </a>";
+         }
             
+                
             
                    
                

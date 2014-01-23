@@ -68,3 +68,14 @@ function validarNombreEstricto ($valor) {
         return false;
     }
 }
+
+
+function resultadoCheck ($valor=NULL) {
+    if (isset ($valor)){
+        return true;
+    
+} else {
+    
+}
+}
+    
