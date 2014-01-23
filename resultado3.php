@@ -22,7 +22,7 @@
              $error = true;
              $mensaje_error .= " Nombre obligatorio ";
          }
-            //la edad no es un numero
+            //validar edad
             if (!validarEdad($edad)) {
                 $error = true;
                 $mensaje_error .= " La edad debe ser un número entre 1 y 100";
@@ -32,12 +32,13 @@
                      $error = true;
                      $mensaje_error .= " La edad debe estar entre 0 y 100";
                  }
-             }*/
+             }
+             
             // el nombre esta vacío          
             if ($nombre == "") {
                 $error = true;
                 $mensaje_error .= " El nombre es obligatorio";
-             }
+             }*/
             
              
         //calculo y salida
