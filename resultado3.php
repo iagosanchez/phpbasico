@@ -11,7 +11,7 @@
         //entrada datos
             $nombre = $_REQUEST ['nombre'];
             $edad = $_REQUEST ['edad'];
-            $beca = $_REQUEST ['beca'];
+            $beca = isset ($_REQUEST ['beca']);
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";
@@ -50,9 +50,9 @@
                 echo $nombre. " es menor de edad ";
             }
             if ($beca){
-                echo "Solicita beca";
+                echo "</br> Solicita beca";
                 } else {
-                    echo "No solicita beca";
+                    echo "</br> No solicita beca";
                 } 
          } else {
             //Si hay error
