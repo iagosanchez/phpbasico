@@ -12,6 +12,7 @@
             $nombre = $_REQUEST ['nombre'];
             $edad = $_REQUEST ['edad'];
             $beca = isset ($_REQUEST ['beca']);
+            $sexo = (isset ($_REQUEST ['sexo']))?$_REQUEST['sexo']:FALSE;
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";

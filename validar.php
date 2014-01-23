@@ -73,6 +73,7 @@ function validarNombreEstricto ($valor) {
 function resultadoCheck ($valor=NULL) {
     if (isset ($valor)){
         return true;
+    } 
     
-} }
+    }
     
