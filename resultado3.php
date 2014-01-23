@@ -16,6 +16,12 @@
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";
+            //validar nombre
+        $nombre = limpiarTexto($nombre);
+         if (!validarNombreEstricto($nombre)) {
+             $error = true;
+             $mensaje_error .= " Nombre obligatorio ";
+         }
             //la edad no es un numero
             if (!validarEdad($edad)) {
                 $error = true;
