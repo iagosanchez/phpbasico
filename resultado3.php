@@ -13,6 +13,7 @@
             $edad = $_REQUEST ['edad'];
             $beca = isset ($_REQUEST ['beca']);
             $sexo = (isset ($_REQUEST ['sexo']))?$_REQUEST['sexo']:FALSE;
+            $estado = (isset ($_REQUEST ['estado']))?$_REQUEST['estado']:FALSE;
         //validad datos
             $error = false;
             $mensaje_error = "ERROR:";
@@ -26,6 +27,12 @@
          if (!($sexo)){
              $error = true;
              $mensaje_error .=" El sexo es obligatorio";
+         }
+         
+         //validar estado
+         if (!($estado)){
+             $error = true;
+             $mensaje_error .=" Estado civil no escogido";
          }
          
             //validar edad
@@ -62,6 +69,7 @@
                     echo "</br> No solicita beca";
                 }
                 echo "</br> Sexo: ".$sexo;
+                echo "</br> Estado civil: ".$estado;
          } else {
             //Si hay error
             echo $mensaje_error;
