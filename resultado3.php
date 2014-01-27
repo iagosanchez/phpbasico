@@ -74,11 +74,13 @@
                 } else {
                     echo "</br> No solicita beca";
                 }
+                
+                if ($sexo){
                 echo "</br> Sexo: ".$sexo;
                 echo "</br> Estado civil: ".$estado;
                 echo "</br> Aficiones elegidas: ";
-                foreach($aficiones as $aficion){
-                    echo $aficion."</br>";
+                echo "Afición= ".$aficiones."</br>";
+                print_r($aficiones);
                 }
          } else {
             //Si hay error
