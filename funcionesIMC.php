@@ -37,3 +37,61 @@ else {
 }
     return $clasificacion;
 }
+
+
+//validación
+
+
+/* VALIDAR PESO
+ * Indica si el valor de peso es correcto
+ * @param peso debe ser un numero entre 1-500
+ */
+define('PESO_MIN', 1); // Kg
+define('PESO_MAX', 500); // Kg
+
+
+//Comprobar que es un entero
+function validarEntero ($peso){
+    if (filter_var($peso, FILTER_VALIDATE_INT)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Comprobar que el número está en un rango
+// Definir el rango
+function compruebaRango ($peso, $inicial, $final){
+    return ($peso>=$inicial && $peso<=$final);
+}
+
+// Comprobar el rango
+function validarPeso ($peso){
+    return (validarEntero($peso)&&
+    compruebaRango($peso, PESO_MIN, PESO_MAX));
+}
+
+
+
+ /* VALIDAR ALTURA
+ * Indica si el valor de altura es correcto
+ * @param altura debe ser un numero entre 1-300
+ */
+define('ALTURA_MIN', 50); //cm
+define('ALTURA_MAX', 300); // cm
+
+
+
+//Comprobar que el número está en un rango
+// Definir el rango
+
+
+// Comprobar el rango
+function validarAltura ($altura){
+    if (is_int ($altura)){
+        $resultado = compruebaRango (ALTURA_MIN, ALTURA_MAX, $altura);
+    } else{
+        $resultado = FALSE;
+    }
+    return $resultado;
+}
