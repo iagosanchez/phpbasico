@@ -65,6 +65,10 @@ function compruebaRango ($peso, $inicial, $final){
     return ($peso>=$inicial && $peso<=$final);
 }
 
+function RangoComprueba ($altura, $inicial, $final){
+    return ($altura>=$inicial && $altura<=$final);
+}
+
 // Comprobar el rango
 function validarPeso ($peso){
     return (validarEntero($peso)&&
@@ -88,10 +92,16 @@ define('ALTURA_MAX', 300); // cm
 
 // Comprobar el rango
 function validarAltura ($altura){
-    if (is_int ($altura)){
-        $resultado = compruebaRango (ALTURA_MIN, ALTURA_MAX, $altura);
+    if (filter_var($altura, FILTER_VALIDATE_INT)){
+        $resultado = RangoComprueba ($altura, ALTURA_MIN, ALTURA_MAX);
     } else{
         $resultado = FALSE;
     }
     return $resultado;
 }
+
+
+//MOSTRAR ERRORES
+
+define('MSG_ERR_PESO', "El peso debe estar entre 1 y 500 KG");
+define('MSG_ERR_ALTURA', "La altura debe estar entre 50 y 300 cm");
