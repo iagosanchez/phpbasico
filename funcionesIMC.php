@@ -1,107 +1,92 @@
 <?php
 
-/* calculoIMC
- * Calcula el valor IMC 
- * peso en kilogramos
- * altura en centimetros
- * @return float el resultado del calculo IMC redondeado a 2 decimales
- * FLOAT ES UN NúMERO REAL
- */
-function calculoIMC ($peso, $altura){
-    $altura = $altura / 100; //cm a metros
-    $IMC = ($peso / ($altura * $altura));
-    
-    return round($IMC, 2);
-}
-
 /*
- * ClasificacionIMC
- * Calcula la clasificación IMC 
- * @param imc Valor valido de IMC
- * return string Contiene clasificación según valor
- * @link http://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
-function clasificacionIMC ($IMC) {
-    if ($IMC < 18.50){
-    $clasificacion = "Bajo peso";
-} 
-elseif ($IMC < 25){
-    $clasificacion = "Normal";
+define('PESO_MIN', 1); // Kgs
+define('PESO_MAX', 500); // Kgs
+define('ESTATURA_MIN', 50); //cms
+define('ESTATURA_MAX', 300); //cms
+
+define('MSG_ERR_PESO', 'El peso debe ser un valor ...');
+define('MSG_ERR_ESTATURA', 'La estatura debe ser un valor ...');
+
+/**
+* calculoIMC
+* Calcula el valor IMC
+* @param masa expresada en kgs [0-500]
+* @param estatura espresada en cms [0-300]
+* @return float resultado del cálculo imc redondeado a 2 decimales
+* @link http://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal
+*/
+function calculoIMC($masa, $estatura) {
+  $estatura = $estatura / 100; // cms a mts
+  $imc = $masa / ($estatura * $estatura);
+  return round($imc, 2);
 }
-elseif ($IMC < 30) {
-    $clasificacion = "Sobrepeso";
-}
-else {
-    $clasificacion = "Obesidad";
-}
+
+/**
+* clasificacionIMC
+* Calcula la clasificación ...
+* @param imc Valor válido de IMC
+* @return String Contiene clasificación según valor
+* @link http://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal
+*/
+function clasificacionIMC($imc) {
+    if ($imc < 18.5) {
+        $clasificacion = "Bajo peso";
+    } elseif ($imc < 25) {
+        $clasificacion = "Normal";
+    } elseif ($imc < 30) {
+        $clasificacion = "Sobrepeso";
+    } else {
+        $clasificacion = "Obesisad";
+    }
     return $clasificacion;
 }
 
+/**
+* enRango
+* Indica si un valor está en un rango determinado [inicio,fin]
+* @param inicio
+* @param fin
+* @param valor
+* @return true si valor esta en el rango [inicio, fin], sino false
+*/
+function enRango($inicio, $fin, $valor) {
+    return ($valor>=$inicio && $valor<=$fin);
+}
 
-//validación
 
-
-/* VALIDAR PESO
- * Indica si el valor de peso es correcto
- * @param peso debe ser un numero entre 1-500
- */
-define('PESO_MIN', 1); // Kg
-define('PESO_MAX', 500); // Kg
-
-
-//Comprobar que es un entero
-function validarEntero ($peso){
-    if (filter_var($peso, FILTER_VALIDATE_INT)) {
-        return true;
+/**
+* validarPeso
+* Validar peso: Indica si el valor de peso es correcto
+* @param peso debe ser un valor numérico entre lo definido en ctes...
+* @return boolean True si cumple y False en caso contrario
+*/
+function validarPeso($peso) {
+    if (filter_var($peso,FILTER_VALIDATE_INT)) {
+        $resultado = enRango(PESO_MIN, PESO_MAX, $peso);
     } else {
-        return false;
-    }
-}
-
-//Comprobar que el número está en un rango
-// Definir el rango
-function compruebaRango ($peso, $inicial, $final){
-    return ($peso>=$inicial && $peso<=$final);
-}
-
-function RangoComprueba ($altura, $inicial, $final){
-    return ($altura>=$inicial && $altura<=$final);
-}
-
-// Comprobar el rango
-function validarPeso ($peso){
-    return (validarEntero($peso)&&
-    compruebaRango($peso, PESO_MIN, PESO_MAX));
-}
-
-
-
- /* VALIDAR ALTURA
- * Indica si el valor de altura es correcto
- * @param altura debe ser un numero entre 1-300
- */
-define('ALTURA_MIN', 50); //cm
-define('ALTURA_MAX', 300); // cm
-
-
-
-//Comprobar que el número está en un rango
-// Definir el rango
-
-
-// Comprobar el rango
-function validarAltura ($altura){
-    if (filter_var($altura, FILTER_VALIDATE_INT)){
-        $resultado = RangoComprueba ($altura, ALTURA_MIN, ALTURA_MAX);
-    } else{
         $resultado = FALSE;
     }
     return $resultado;
 }
 
-
-//MOSTRAR ERRORES
-
-define('MSG_ERR_PESO', "El peso debe estar entre 1 y 500 KG");
-define('MSG_ERR_ALTURA', "La altura debe estar entre 50 y 300 cm");
+/**
+* validarEstatura
+* Validar estatura: Indica si el valor de estatura es correcto
+* @param estatura debe ser un valor numérico entre ctes definidas...
+* @return boolean True si cumple y False en caso contrario
+*/
+function validarEstatura($estatura) {
+    if (filter_var($peso,FILTER_VALIDATE_INT)) {
+        $resultado = enRango(ESTATURA_MIN, ESTATURA_MAX, $estatura);
+    } else {
+        $resultado = FALSE;
+    }
+    return $resultado;
+}
