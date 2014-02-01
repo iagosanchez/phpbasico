@@ -35,3 +35,25 @@ function validarLogin($login) {
             && preg_match($patron, $login));
 }
 
+/*
+ * Validar la contraseña
+ * primero que cumpla el rango
+ * que su patrón sea alfanumérico
+ * @param
+ * @return bool
+ */
+function validarPassword ($password){
+    $patron = "/^[[:alnum:]]+$/";
+    $longitud = strlen($password);
+    return (enRango(PASS_MIN, PASS_MAX, $longitud))
+            && preg_match($patron, $password);
+}
+
+/*
+ * Comprobar las dos passwords
+ * contenido de passwords igual
+ * @ return bool
+ */
+function igualdadPassword ($password, $passwordr){
+    return ($password == $passwordr);
+}

@@ -14,12 +14,20 @@ function validarDatosRegistro() {
     $resultadoValidacion = True;
     $login = (isset($_REQUEST['login']))?
             $_REQUEST['login']:"";
-    
+    $password = (isset($_REQUEST['password']))?
+            $_REQUEST['password']:"";
+    $passwordr = (isset($_REQUEST['passwordr']))?
+            $_REQUEST['passwordr']:"";
     
     if (!validarLogin($login)) {
         $resultadoValidacion = False;
     }
-    
+    if (!validarPassword($password)){
+        $resultadoValidacion = False;
+    }
+    if (!igualdadPassword($password, $passwordr)){
+        $resultadoValidacion = False;
+    }
     return $resultadoValidacion;
 } 
 ?>
