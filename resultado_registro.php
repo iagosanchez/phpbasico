@@ -19,6 +19,7 @@ function validarDatosRegistro() {
     $passwordr = (isset($_REQUEST['passwordr']))?
             $_REQUEST['passwordr']:"";
     
+    
     if (!validarLogin($login)) {
         $resultadoValidacion = False;
     }
@@ -28,6 +29,7 @@ function validarDatosRegistro() {
     if (!igualdadPassword($password, $passwordr)){
         $resultadoValidacion = False;
     }
+    
     return $resultadoValidacion;
 } 
 ?>

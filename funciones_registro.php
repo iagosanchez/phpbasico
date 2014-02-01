@@ -57,3 +57,9 @@ function validarPassword ($password){
 function igualdadPassword ($password, $passwordr){
     return ($password == $passwordr);
 }
+
+/*
+ * Validación del correo
+ * patron alfanumerico @ letras . letras
+ */
+
