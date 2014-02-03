@@ -60,6 +60,8 @@ function igualdadPassword ($password, $passwordr){
 
 /*
  * Validación del correo
- * patron alfanumerico @ letras . letras
+ * validar email
  */
-
+function validarEmail ($email){
+    return (filter_var($email, FILTER_VALIDATE_EMAIL)) || $email=="";
+}
