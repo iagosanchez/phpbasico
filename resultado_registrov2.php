@@ -1,6 +1,5 @@
 <?php
 require_once 'funciones_registro.php';
-require_once 'errores_registro.php';
 /**
  * Verifica que los datos recibidos por $_REQUEST son válidos
  * @return bool True si son válidos, False en caso contrario
@@ -12,7 +11,7 @@ function validarDatosRegistro() {
      * validar passwordr es igual a password
      * validar email
      */
-    $resultadoValidacion = Array();
+    $resultadoValidacion = True;
     $login = (isset($_REQUEST['login']))?
             $_REQUEST['login']:"";
     $password = (isset($_REQUEST['password']))?
@@ -24,16 +23,16 @@ function validarDatosRegistro() {
     
     
     if (!validarLogin($login)) {
-        $resultadoValidacion[] = MSG_ERR_LOGIN; 
+        $resultadoValidacion = False;
     }
     if (!validarPassword($password)){
-        $resultadoValidacion[] = MSG_ERR_PASSWORD;
+        $resultadoValidacion = False;
     }
     if (!igualdadPassword($password, $passwordr)){
-        $resultadoValidacion [] = MSG_ERR_PASSWORD2;
+        $resultadoValidacion = False;
     }
     if (!validarEmail($email)){
-        $resultadoValidacion [] = MSG_ERR_EMAIL;
+        $resultadoValidacion = False;
     }
     
     return $resultadoValidacion;
@@ -48,15 +47,10 @@ function validarDatosRegistro() {
     <body>
         <div>Resultado Registro</div>
         <?php
-        $errores = validarDatosRegistro();
-            if (count($errores)==0) {
+            if (validarDatosRegistro()) {
                 echo "Datos correctos. Se puede registrar...";
             } else {
                 echo "Error en los datos";
-                foreach ($errores as $error) {
-                    echo $error. "</br>";
-               }
-            echo "<a href='javascript:history.go(-1);'> Volver al formulario </a>";
             }
         ?>    
     </body>
