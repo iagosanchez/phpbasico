@@ -53,13 +53,11 @@ function validarDatosRegistro() {
             if (count($errores)==0) {
                 echo "Datos correctos. Se puede registrar...";
             } else {
-                
-                echo "Error en los datos </br>";
-                foreach ($errores as $error) {
-                    echo $error. "</br>";
+                $_SESSION['errores'] = $errores;
+                $url = "formulario_registro_1.php";
+                header('location', $url);
                }
-            echo "<a href='javascript:history.go(-1);'> Volver al formulario </a>";
-            }
+            
         ?>    
     </body>
 </html>
