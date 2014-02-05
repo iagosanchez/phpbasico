@@ -52,7 +52,7 @@ function validarDatosRegistro() {
             if (count($errores)==0) {
                 echo "Datos correctos. Se puede registrar...";
             } else {
-                echo "Error en los datos";
+                echo "Error en los datos </br>";
                 foreach ($errores as $error) {
                     echo $error. "</br>";
                }
