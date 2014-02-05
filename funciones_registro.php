@@ -63,5 +63,5 @@ function igualdadPassword ($password, $passwordr){
  * validar email
  */
 function validarEmail ($email){
-    return (filter_var($email, FILTER_VALIDATE_EMAIL)) || $email=="";
+    return (filter_var($email, FILTER_VALIDATE_EMAIL));
 }
