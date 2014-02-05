@@ -16,7 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>Registro</div>
-        <form action="resultado_registro.php" method="GET">
+        <form action="resultado_registro_1.php" method="GET">
             <p>Login: <input type="text" name="login"> </p>    
             <p>Password <input type="password" name="password"/></p>
             <p>Re-Password <input type="password" name="passwordr"/></p>
