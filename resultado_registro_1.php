@@ -54,8 +54,9 @@ function validarDatosRegistro() {
                 echo "Datos correctos. Se puede registrar...";
             } else {
                 $_SESSION['errores'] = $errores;
-                $url = "formulario_registro_1.php";
-                header('location', $url);
+                $url = "formulario_registro_1.php?".
+                    $_SERVER['QUERY_STRING'];
+                header('Location:'.$url);
                }
             
         ?>    
