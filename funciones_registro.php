@@ -54,8 +54,8 @@ function validarPassword ($password){
  * contenido de passwords igual
  * @ return bool
  */
-function igualdadPassword ($password, $passwordr){
-    return ($password == $passwordr);
+function igualdadPassword ($password, $password2){
+    return ($password == $password2);
 }
 
 /*
