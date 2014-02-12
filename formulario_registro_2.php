@@ -3,21 +3,21 @@ session_start();
 /*
  * Estructura campos del formulario
  */
-$login = (isset($_REQUEST['login']))?
-            $_REQUEST['login']:"";
+$login = (isset($_SESSION['login']))?
+            $_SESSION['login']:"";
 
-$email = (isset($_REQUEST['email']))?
-            $_REQUEST['email']:"";
+$email = (isset($_SESSION['email']))?
+            $_SESSION['email']:"";
 
 // Estructura para errores. Si hay error 
-$errLogin = (isset($_REQUEST['errLogin']))?
-        $_REQUEST['errLogin']: FALSE;
-$errPassword = (isset($_REQUEST['errPassword']))?
-        $_REQUEST['errLogin']: FALSE;
-$errPassword2 = (isset($_REQUEST['errPassword2']))?
-        $_REQUEST['errLogin']: FALSE;
-$errEmail = (isset($_REQUEST['errEmail']))?
-        $_REQUEST['errLogin']: FALSE;
+$errLogin = (isset($_SESSION['errLogin']))?
+        $_SESSION['errLogin']: FALSE;
+$errPassword = (isset($_SESSION['errPassword']))?
+        $_SESSION['errLogin']: FALSE;
+$errPassword2 = (isset($_SESSION['errPassword2']))?
+        $_SESSION['errLogin']: FALSE;
+$errEmail = (isset($_SESSION['errEmail']))?
+       $_SESSION['errLogin']: FALSE;
 
 unset($_SESSION['errLogin']);
 unset($_SESSION['errPassword']);
